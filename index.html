@@ -9,7 +9,7 @@
 </head>
 <body>
     <input type="text" id="data">
-    <button onclick="jscreacteQRCode()">Run</button>
+    <button onclick="jscreateQRCode()">Run</button>
     <br/>
     <img id="result" src="" >
     <script>
@@ -18,7 +18,7 @@
 			WebAssembly.instantiateStreaming(fetch("lib.wasm"), go.importObject).then((result) => {
 				go.run(result.instance);
 			});
-            function jscreacteQRCode(){
+            function jscreateQRCode(){
                     const bytes = MakeQRCODE()
                     let blob = new Blob([bytes], {type: "image/jpeg"});
                     document.getElementById("result").src = URL.createObjectURL(blob);
